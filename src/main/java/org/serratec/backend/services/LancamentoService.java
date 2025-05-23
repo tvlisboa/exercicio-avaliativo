@@ -1,4 +1,6 @@
 package org.serratec.backend.services;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.serratec.backend.dto.LancamentoVendasResponseDTO;
 import org.serratec.backend.entities.LancamentoVendas;
@@ -15,7 +17,7 @@ public class LancamentoService {
 
 	public LancamentoVendasResponseDTO listarPorId(Long id) {
 		Optional<LancamentoVendas> lancamento = lancamentoRepository.findById(id);
-		
+
 		if (lancamento.isPresent()) {
 			LancamentoVendas venda = lancamento.get();
 			
@@ -24,6 +26,16 @@ public class LancamentoService {
 		}
 		throw new LancamentoException("venda com id " + id + "não encontrada ! ");
 		// eu inseri a exception da Juliana aqui acima
+	}
+
+	public List<LancamentoVendasResponseDTO> listar() {
+		List<LancamentoVendas> lancamentos = lancamentoRepository.findAll();
+		List<LancamentoVendasResponseDTO> lancamentosDTO = new ArrayList<>();
+		for(LancamentoVendas lancamento : lancamentos){
+			lancamentosDTO.add(new LancamentoVendasResponseDTO(lancamento.getDataVenda(), lancamento.getValorVenda(),
+					lancamento.getVendedor().getNome()));
+		}
+		return lancamentosDTO;
 	}
 
 	public LancamentoVendasResponseDTO inserirLancamento(LancamentoVendas novoLancamento) {
