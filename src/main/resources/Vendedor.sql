@@ -1,5 +1,3 @@
-insert into Vendedor (nome, email, salario) values ('Lexis', 'lrubinivitz0@1688.com', 8076.57);
-insert into Vendedor (nome, email, salario) values ('Prince', 'pbarge1@dropbox.com', 5132.05);
 insert into Vendedor (nome, email, salario) values ('Kev', 'kllewellen2@ft.com', 8415.08);
 insert into Vendedor (nome, email, salario) values ('Bernette', 'bfronks3@hp.com', 1906.37);
 insert into Vendedor (nome, email, salario) values ('Piggy', 'pdevoiels4@google.pl', 8248.43);
@@ -998,3 +996,5 @@ insert into Vendedor (nome, email, salario) values ('Jilli', 'jtothacotro@newyor
 insert into Vendedor (nome, email, salario) values ('Cate', 'crhodusrp@blogger.com', 3272.95);
 insert into Vendedor (nome, email, salario) values ('Denni', 'ddomekrq@google.com.br', 7162.55);
 insert into Vendedor (nome, email, salario) values ('Ferrell', 'flambertinirr@paypal.com', 10857.93);
+insert into Vendedor (nome, email, salario) values ('Lool', 'lool@hp.com', 5404.19);
+insert into Vendedor (nome, email, salario) values ('Pops', 'pops@hp.com', 5404.19);

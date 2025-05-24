@@ -4,8 +4,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import org.hibernate.annotations.CreationTimestamp;
 import org.serratec.backend.entities.LancamentoVendas;
-import java.time.LocalDate;
+import org.serratec.backend.entities.Vendedor;
 
+
+import java.time.LocalDate;
 public class LancamentoVendasRequestDTO {
 
     @NotBlank(message = "O campo data da venda é obrigatória")
@@ -16,8 +18,8 @@ public class LancamentoVendasRequestDTO {
     @NotNull(message = "O campo valor da venda é obrigatório")
     private Double valorVenda;
 
-    @NotBlank(message = "O campo nome do vendedor é obrigatório")
-    private String nomeVendedor;
+    @NotNull(message = "O campo ID vendedor é obrigatório")
+    private Vendedor vendedor;
 
     public LocalDate getDataVenda() {
         return dataVenda;
@@ -35,12 +37,12 @@ public class LancamentoVendasRequestDTO {
         this.valorVenda = valorVenda;
     }
 
-    public String getNomeVendedor() {
-        return nomeVendedor;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
 
-    public void setNomeVendedor(String nomeVendedor) {
-        this.nomeVendedor = nomeVendedor;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
     public LancamentoVendasRequestDTO() {
@@ -49,6 +51,6 @@ public class LancamentoVendasRequestDTO {
     public LancamentoVendasRequestDTO(LancamentoVendas lancamentoVendas) {
         this.dataVenda = lancamentoVendas.getDataVenda();
         this.valorVenda = lancamentoVendas.getValorVenda();
-        this.nomeVendedor = lancamentoVendas.getVendedor().getNome();
+        this.vendedor = lancamentoVendas.getVendedor();
     }
 }

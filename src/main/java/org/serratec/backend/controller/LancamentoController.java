@@ -1,12 +1,11 @@
 package org.serratec.backend.controller;
+import org.serratec.backend.dto.LancamentoVendasRequestDTO;
 import org.serratec.backend.dto.LancamentoVendasResponseDTO;
-import org.serratec.backend.entities.LancamentoVendas;
 import org.serratec.backend.services.LancamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -28,7 +27,7 @@ public class LancamentoController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<LancamentoVendasResponseDTO> inserirLancamento(@RequestBody LancamentoVendas lancamento) {
-		return ResponseEntity.ok(lancamentoService.inserirLancamento(lancamento));
+	public LancamentoVendasResponseDTO inserirLancamento(@RequestBody LancamentoVendasRequestDTO lancamento) {
+		return lancamentoService.inserirLancamento(lancamento);
 	}
 }
